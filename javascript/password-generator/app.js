@@ -10,5 +10,5 @@ const generate = len => {
         const randomN = Math.floor(Math.random() * chars.length);
         result += chars[randomN];
     }
-    console.log(result);
+    return result;
 }
