@@ -1,0 +1,86 @@
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: black;
+    }
+    div{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        p{
+            display: flex;
+            flex-direction: column;
+            font-size: 20pt;
+            font-family: "SF Mono";
+            color: rgb(0, 186, 0);
+        }
+    }
+</style>
+<div>
+    <p>
+        <span>
+            <span class="first">0</span>
+            <span class="second">1</span>
+        </span>
+        <span>
+            <span class="thirth">a</span>
+            <span class="fourth">e</span>
+        </span>
+    </p>
+</div>
+
+<script defer>
+    const $ = document;
+    
+    const first = $.querySelector(".first");
+    const second = $.querySelector(".second");
+    const thirth = $.querySelector(".thirth");
+    const fourth = $.querySelector(".fourth");
+
+    function range(start, ends){
+        const items = [];
+        for(let i=start; i<=ends; i++) items.push(i);
+
+        return items;
+    }
+
+    function merge(array){
+        return array.flat(1);
+    }
+
+    function loading(){
+
+        const chars = merge([range(97, 126), range(65, 90), range(48,57), range(35,38)]);
+        
+        setInterval(() => {
+            const firstRand = Math.floor(Math.random() * chars.length - 1);
+            const fourthRand = Math.floor(Math.random() * chars.length - 1);;
+            
+            first.innerText = String.fromCharCode(chars[firstRand]);
+        }, 800);
+        
+        setInterval(() => {
+            const secondRand = Math.floor(Math.random() * chars.length - 1);;
+            
+            second.innerHTML = String.fromCharCode(chars[secondRand]);
+        }, 700);
+        
+        setInterval(() => {
+            const thirthRand = Math.floor(Math.random() * chars.length - 1);;
+            
+            thirth.innerHTML = String.fromCharCode(chars[thirthRand]);
+        }, 900);
+        
+        setInterval(() => {
+            const fourthRand = Math.floor(Math.random() * chars.length - 1);;
+            
+            fourth.innerText = String.fromCharCode(chars[fourthRand]);
+        }, 500);
+    }
+    
+    loading();
+</script>
